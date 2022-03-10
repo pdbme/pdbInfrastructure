@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>pdbme.pdbInfrastructure</RootNamespace>
+	  
+	<PackageId>pdbme.pdbInfrastructure</PackageId>
+	<Title>pdbme.pdbInfrastructure</Title>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Authors>pdbme</Authors>
+	<Company>pdbme</Company>
+	<PackageProjectUrl>https://github.com/pdbme/pdbInfrastructure</PackageProjectUrl>
+	<Description>Infrastructure Components.</Description>
+	<Summary>pdbInfrastructure Components.</Summary>
+	<RepositoryUrl>https://github.com/pdbme/pdbInfrastructure</RepositoryUrl>
+	<PackageTags>infrastructure</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageReleaseNotes>Initial version.</PackageReleaseNotes>
+	<Version>1.0.0</Version>
+	<AssemblyName>pdbInfrastructure</AssemblyName>
+	<PackageIcon>icon.png</PackageIcon>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	<EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Nzbget\Data\" />
+    <Folder Include="Nzbget\Interfaces\" />
+    <Folder Include="Nzbget\Services\" />
+    <Folder Include="Sabnzbd\Data\" />
+    <Folder Include="Sabnzbd\Interfaces\" />
+    <Folder Include="Sabnzbd\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+  </ItemGroup>
+	
+</Project>
