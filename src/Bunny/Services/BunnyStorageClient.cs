@@ -1,35 +1,20 @@
-﻿using Microsoft.Extensions.Options;
-using pdbme.pdbInfrastructure.Bunny.Interfaces;
-using pdbme.pdbInfrastructure.Bunny.Options;
+﻿using pdbme.pdbInfrastructure.Bunny.Interfaces;
 using System.Security.Cryptography;
 
 namespace pdbme.pdbInfrastructure.Bunny.Services;
 
-[Obsolete("Use BunnyStorageClient instead.")]
-public class BunnyApiClient : IBunnyApiClient
+public class BunnyStorageClient : IBunnyStorageClient
 {
-    private BunnyApiOptions options;
     private readonly HttpClient httpClient;
 
-    public BunnyApiClient(IOptions<BunnyApiOptions> options, HttpClient httpClient)
+    public BunnyStorageClient(HttpClient httpClient)
     {
-        this.options = options?.Value ?? new BunnyApiOptions();
         this.httpClient = httpClient;
     }
 
-    public void setStorageZone(string storageZone)
+    public void UploadFileStream(Stream stream, string storageZone, string accessKey, string targetPath)
     {
-        options.StorageZone = storageZone;
-    }
-
-    public void setAccessKey(string accessKey)
-    {
-        options.AccessKey = accessKey;
-    }
-
-    public void UploadFileStream(Stream stream, string targetPath)
-    {
-        var normalizedPath = $"{options.BaseUrl}/" + $"{options.StorageZone}/{targetPath.Replace("\\", "/")}";
+        var normalizedPath = "https:" + "//storage.bunnycdn.com/" + $"{storageZone}/{targetPath.Replace("\\", "/")}";
         using (var content = new StreamContent(stream))
         {
             var message = new HttpRequestMessage(HttpMethod.Put, normalizedPath)
@@ -45,13 +30,10 @@ public class BunnyApiClient : IBunnyApiClient
             var sha256Checksum = Checksum.Generate(stream);
             stream.Position = startPosition;
 
-            message.Headers.Add("AccessKey", options.AccessKey);
+            message.Headers.Add("AccessKey", accessKey);
 
             if (!string.IsNullOrWhiteSpace(sha256Checksum))
                 message.Headers.Add("Checksum", sha256Checksum);
-
-            //if (!string.IsNullOrWhiteSpace(contentTypeOverride))
-            //    message.Headers.Add("Override-Content-Type", contentTypeOverride);
 
             var response = httpClient.Send(message);
             var s = response.EnsureSuccessStatusCode();
