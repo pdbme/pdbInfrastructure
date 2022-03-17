@@ -1,8 +1,7 @@
-﻿namespace pdbMate.Core.Data.Nzbget
+﻿namespace pdbme.pdbInfrastructure.Nzbget.Data;
+
+public class NzbgetResultAddDownload
 {
-    public class NzbgetResultAddDownload
-    {
-        public string Version { get; set; } = "";
-        public int Result { get; set; }
-    }
+    public string Version { get; set; } = "";
+    public int Result { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿namespace pdbMate.Core
+﻿namespace pdbme.pdbInfrastructure.Nzbget.Services
 {
     public class NzbgetServiceOptions
     {

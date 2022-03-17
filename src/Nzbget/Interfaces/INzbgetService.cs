@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Microsoft.Extensions.Options;
-using pdbMate.Core.Data.Nzbget;
+﻿using Microsoft.Extensions.Options;
+using pdbme.pdbInfrastructure.Nzbget.Data;
+using pdbme.pdbInfrastructure.Nzbget.Services;
 
-namespace pdbMate.Core.Interfaces
+namespace pdbme.pdbInfrastructure.Nzbget.Interfaces
 {
     public interface INzbgetService
     {

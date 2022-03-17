@@ -1,17 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace pdbMate.Core.Data.Nzbget
+namespace pdbme.pdbInfrastructure.Nzbget.Data;
+
+public class NzbgetRequestAddDownload
 {
-    public class NzbgetRequestAddDownload
-    {
-        [JsonPropertyName("method")]
-        public string Method { get; set; } = "";
+    [JsonPropertyName("method")]
+    public string Method { get; set; } = "";
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
-        [JsonPropertyName("params")]
-        public object[]? Params { get; set; }
-    }
+    [JsonPropertyName("params")]
+    public object[]? Params { get; set; }
 }
