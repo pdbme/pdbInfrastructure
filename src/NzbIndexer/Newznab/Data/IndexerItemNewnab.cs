@@ -4,6 +4,7 @@ namespace pdbme.pdbInfrastructure.NzbIndexer.Newznab.Data;
 
 public class IndexerItemNewnab
 {
+    [JsonPropertyName("title")]
     public string Title { get; set; } = string.Empty;
 
     [JsonPropertyName("link")]
