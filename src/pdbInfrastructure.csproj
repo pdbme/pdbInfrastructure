@@ -18,7 +18,7 @@
 	<PackageTags>infrastructure</PackageTags>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageReleaseNotes>Initial version.</PackageReleaseNotes>
-	<Version>1.0.8</Version>
+	<Version>1.0.9</Version>
 	<AssemblyName>pdbInfrastructure</AssemblyName>
 	<PackageIcon>icon.png</PackageIcon>
 	<PublishRepositoryUrl>true</PublishRepositoryUrl>
